@@ -37,21 +37,17 @@ const showWeatherData = async (city) => {
     tempElement.innerText = parseInt(data.main.temp);
     descElement.innerText = data.weather[0].description;
     
-    // Ícone oficial atualizado
     weatherIconElement.setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
 
-    // Bandeira do país
     const countryCode = data.sys.country.toUpperCase();
     countryElement.setAttribute("src", `https://flagsapi.com/${countryCode}/flat/32.png`);
     
-    // Detalhes com aspas de crase corrigidas
     humidityElement.innerText = `${data.main.humidity}%`;  
     windElement.innerText = `${data.wind.speed} km/h`;
 
     weatherContainer.classList.remove("hide");
 };
 
-// Eventos
 searchBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const city = cityInput.value.trim();
